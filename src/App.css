@@ -1,3 +1,9 @@
+.projects{
+  display: flex;
+  
+}
+
+
 .App {
   text-align: center;
 }
