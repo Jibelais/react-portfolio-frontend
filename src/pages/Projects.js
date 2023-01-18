@@ -11,11 +11,12 @@ function Projects(props) {
     // turn response into javascript object
     const data = await response.json();
     // set the projects state to the data
+    console.log(data)
     setProjects(data);
   };
-
+console.log(projects)
   // make an initial call for the data inside a useEffect, so it only happens once on component load
-  useEffect(() => {getProjectsData()});
+  useEffect(() => {getProjectsData()}, []);
 
   // define a function that will return the JSX needed once we get the data
   const loaded = () => {
@@ -25,10 +26,10 @@ function Projects(props) {
         <div className= "project" key = {project._id}>
           <p>{project.name}</p>
           <img className = "thumbnail" src={project.image} alt = "project" />
-          <a href={project.git}>
+          <a target="_blank" rel="noreferrer" href={project.git}>
             <button>Github</button>
           </a>
-          <a href={project.live}>
+          <a target="_blank" rel="noreferrer" href={project.live}>
             <button>live site</button>
           </a>
         </div>
